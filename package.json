@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@zodios/core": "^10.9.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
