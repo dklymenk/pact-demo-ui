@@ -1,10 +1,8 @@
 import { Zodios } from '@zodios/core'
 import { z } from 'zod'
 
-export const apiClient = new Zodios(
-  'https://jsonplaceholder.typicode.com',
-  // API definition
-  [
+export const getApiClient = (baseUrl: string) =>
+  new Zodios(baseUrl, [
     {
       method: 'get',
       path: '/users/:id', // auto detect :id and ask for it in apiClient get params
@@ -15,5 +13,4 @@ export const apiClient = new Zodios(
         name: z.string()
       })
     }
-  ]
-)
+  ])

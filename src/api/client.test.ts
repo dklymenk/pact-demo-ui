@@ -1,9 +1,12 @@
 import { describe, expect, test } from 'vitest'
-import { apiClient } from './client'
+import { getApiClient } from './client'
 
 describe('client', () => {
   test('getUser', async () => {
-    const user = await apiClient.get('/users/:id', { params: { id: 7 } })
+    const user = await getApiClient('https://jsonplaceholder.typicode.com').get(
+      '/users/:id',
+      { params: { id: 7 } }
+    )
 
     expect(user).toMatchObject({ id: 7, name: 'Kurtis Weissnat' })
   })
