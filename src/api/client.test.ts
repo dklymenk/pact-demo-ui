@@ -36,12 +36,7 @@ describe('client', () => {
             userExample
           )
 
-          expect(user).toMatchObject({
-            id: 7,
-            name: 'Kurtis Weissnat',
-            lastName: 'Smith',
-            nationality: 'US'
-          })
+          expect(user).toMatchObject(userExample)
         })
     })
   })
@@ -61,12 +56,7 @@ describe('client', () => {
             params: { id: 7 }
           })
 
-          expect(user).toMatchObject({
-            id: 7,
-            name: 'Kurtis Weissnat',
-            lastName: 'Smith',
-            nationality: 'US'
-          })
+          expect(user).toMatchObject(userExample)
         })
     })
   })
