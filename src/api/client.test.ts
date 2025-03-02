@@ -20,6 +20,31 @@ const userExample = {
 const EXPECTED_BODY = MatchersV3.like(userExample)
 
 describe('client', () => {
+  describe('postUser', () => {
+    it('returns an HTTP 201 and a user', async () => {
+      await pact
+        .addInteraction()
+        .uponReceiving('a request to create a user')
+        .withRequest('POST', '/users')
+        .willRespondWith(201, (builder) => {
+          builder.headers({ 'Content-Type': 'application/json' })
+          builder.jsonBody(EXPECTED_BODY)
+        })
+        .executeTest(async (mockServer) => {
+          const user = await getApiClient(mockServer.url).post(
+            '/users',
+            userExample
+          )
+
+          expect(user).toMatchObject({
+            id: 7,
+            name: 'Kurtis Weissnat',
+            lastName: 'Smith',
+            nationality: 'US'
+          })
+        })
+    })
+  })
   describe('getUser', () => {
     it('returns an HTTP 200 and a user', async () => {
       await pact
