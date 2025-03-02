@@ -10,7 +10,8 @@ export const getApiClient = (baseUrl: string) =>
       description: 'Get a user',
       response: z.object({
         id: z.number(),
-        name: z.string()
+        name: z.string(),
+        nationality: z.string()
       })
     }
   ])

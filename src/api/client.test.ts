@@ -11,7 +11,7 @@ const pact = new PactV4({
   spec: SpecificationVersion.SPECIFICATION_VERSION_V4 // Modify this as needed for your use case
 })
 
-const userExample = { id: 7, name: 'Kurtis Weissnat' }
+const userExample = { id: 7, name: 'Kurtis Weissnat', nationality: 'US' }
 const EXPECTED_BODY = MatchersV3.like(userExample)
 
 describe('client', () => {
@@ -31,7 +31,11 @@ describe('client', () => {
             params: { id: 7 }
           })
 
-          expect(user).toMatchObject({ id: 7, name: 'Kurtis Weissnat' })
+          expect(user).toMatchObject({
+            id: 7,
+            name: 'Kurtis Weissnat',
+            nationality: 'US'
+          })
         })
     })
   })
