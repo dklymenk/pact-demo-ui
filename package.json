@@ -13,12 +13,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@pact-foundation/pact": "^14.0.0",
     "@zodios/core": "^10.9.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@types/node": "^22.13.8",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
